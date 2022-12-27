@@ -18,11 +18,8 @@ steps:
   - 'gcr.io/$PROJECT_ID/nodejs'
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: 'Deploy to staging'
-  args: ['apply', '-f', 'kubernetes/*']
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=$_COMPUTE_REGION'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=$_STAGING_CLUSTER'
+  id: 'Deploy to Kubernetes Cluster'
+  args: ['./deploy.sh']
 
 options:
   logging: CLOUD_LOGGING_ONLY
