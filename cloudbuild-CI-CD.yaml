@@ -24,5 +24,8 @@ steps:
   - '-f'
   - 'kubernetes/*.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-central1-c'
+  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
