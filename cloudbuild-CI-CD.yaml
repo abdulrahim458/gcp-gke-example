@@ -28,11 +28,9 @@ steps:
 
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy
-  args:
   - '-c'
-  - 'apply'
-  - '-f'
-  - 'kubernetes'
+  - |
+     apply -f kubernetes
   env:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1'
