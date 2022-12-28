@@ -17,6 +17,15 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/nodejs'
 
+# This step generates the new manifest
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Generate manifest
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+     sed "s/${SHORT_SHA}/#VERSION/g" kubernetes/deployment.yaml"
+
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy
   args:
