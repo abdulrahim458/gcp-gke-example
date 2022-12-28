@@ -7,7 +7,7 @@ metadata:
     app: node-frontend
 spec:
   selector:
-    app: node-frotend
+    app: node-frontend
   ports:
   - port: 3000
     protocol: TCP
