@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: nodejs
+  namespace: production
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: node-frontend
+  replicas: 3 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: node-frontend
+    spec:
+      containers:
+      - name: nodejs
+        image: gcr.io/sunlit-mantra-367318/nodejs:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
