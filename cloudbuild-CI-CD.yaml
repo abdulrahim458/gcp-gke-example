@@ -29,6 +29,7 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy
   args:
+  - '-c'
   - 'apply'
   - '-f'
   - 'kubernetes'
