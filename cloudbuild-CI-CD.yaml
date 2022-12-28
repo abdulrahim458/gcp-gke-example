@@ -17,7 +17,7 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/nodejs'
 
-- name: 'gcr.io/cloud-builders/kubectl'
+- name: 'gcr.io/sunlit-mantra-367318/kubectl:1.0.0'
   id: 'Deploy to Kubernetes Cluster'
   args: ['./deploy.sh']
 
