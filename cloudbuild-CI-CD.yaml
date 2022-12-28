@@ -17,9 +17,12 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/nodejs'
 
-- name: 'gcr.io/sunlit-mantra-367318/kubectl:1.0.0'
-  id: 'Deploy to Kubernetes Cluster'
-  args: ['./deploy.sh']
-
-options:
-  logging: CLOUD_LOGGING_ONLY
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
+  args:
+  - 'apply'
+  - '-f'
+  - 'kubernetes/*.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1'
